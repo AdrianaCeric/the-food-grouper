@@ -55,13 +55,13 @@ input[type="file"] {
 }
 
 .progress-bar {
-    background-color: #CEEC17;
+    background-color: #e18b22;
     border-radius: 60px;
 }
 
 #progress-text {
     font-family: 'Montserrat', sans-serif;
-    color: #5E8A2E;
+    color: #fffefe;
     margin-top: 6px;
 }
 

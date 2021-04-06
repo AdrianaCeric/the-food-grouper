@@ -66,6 +66,7 @@ $(async function() {
         var prediction = await model.predict(document.getElementById("selected-image"));
         var fails = 0;
 
+        //Print classification on screen if prediction is equal or more than 60% accurate
         console.log(prediction)
         for (var i = 0; i < prediction.length; i++) {
             console.log(prediction[i.toString()]);
@@ -84,6 +85,7 @@ $(async function() {
                 fails++;
             }
         }
+        //Runtime error handling
         console.log(fails)
         if (fails == 4) {
             setP("Unable to identify. Please try again with another photo.", 3, "index.html", "index.html", "aaaaa");
