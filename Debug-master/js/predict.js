@@ -53,16 +53,16 @@ $(async function() {
         $(".predict-btn-wrapper").show();
     });
 
-//model gets data and
+//retrieves model data
     model = await tmImage.load(url + "model.json", url + "metadata.json")
     $(".progress").hide();
     maxPredictions = model.getTotalClasses();
 
     $("#predict-button").click(async function() {
         $(".predict-btn-wrapper").hide()
-
+        //show prediction on screen
         $(".predict").show();
-        $(".progress").html("<h5>Classifying food...</h5>");
+        /*$(".progress").html("<h5>Classifying food...</h5>");*/
         var prediction = await model.predict(document.getElementById("selected-image"));
         var fails = 0;
 
