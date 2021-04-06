@@ -10,6 +10,7 @@ upl.addEventListener("dragover", function(event) {
 
 // Drag and drop
 upl.addEventListener("drop", function(event) {
+    //By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element.
     event.preventDefault();
     inp.files = event.dataTransfer.files;
     let reader = new FileReader();
