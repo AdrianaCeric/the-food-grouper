@@ -13,9 +13,12 @@ upl.addEventListener("drop", function(event) {
     //By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element.
     event.preventDefault();
     inp.files = event.dataTransfer.files;
+    // access the contents of files that the user has explicitly selected
     let reader = new FileReader();
     reader.onload = function() {
+        //returns file on screen
         let dataURL = reader.result;
+        //what to show when file is uploaded (button and image w/ container)
         $("#selected-image").attr("src", dataURL);
         $("#prediction-list").empty();
         $("#explanation-list").empty();
@@ -47,7 +50,7 @@ $(async function() {
             $(".image-container").show();
             $(".predict").hide();
         }
-
+        //Let selector image-selector return property "files"
         let file = $("#image-selector").prop('files')[0];
         reader.readAsDataURL(file);
         $(".predict-btn-wrapper").show();
