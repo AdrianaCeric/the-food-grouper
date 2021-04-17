@@ -4,14 +4,6 @@ body {
     background-color: #f5f5ef;
 }
 
-.good {
-    color: green;
-}
-
-.bad {
-    color: red;
-}
-
 .bugimg {
     width: 100%;
     border-radius: 20px;
