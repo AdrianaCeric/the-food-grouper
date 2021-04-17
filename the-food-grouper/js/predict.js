@@ -9,6 +9,7 @@ var inp = document.getElementById("image-selector");
 // Drag and drop
 // male variable "upload" that retrieves class upload-button-wrapper
 var upl = document.getElementsByClassName("upload-btn-wrapper")[0];
+//allowing event dragover to happen (Prevent file from being opened)
 upl.addEventListener("dragover", function(event) {
     event.preventDefault();
 })
@@ -17,6 +18,7 @@ upl.addEventListener("dragover", function(event) {
 upl.addEventListener("drop", function(event) {
     //By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element.
     event.preventDefault();
+    // DataTransfer object is used to hold the data that is being dragged during a drag and drop operation
     inp.files = event.dataTransfer.files;
     // access the contents of files that the user has explicitly selected
     let reader = new FileReader();
