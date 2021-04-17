@@ -105,6 +105,8 @@ $(async function() {
         if (fails == 1) {
             setP("Unable to identify. Please try again with another photo.");
         }
+        //scrolls to bottom of screen to see prediction
+        window.scrollTo(0, document.body.scrollHeight);
     })
 })
 
