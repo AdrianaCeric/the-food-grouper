@@ -3,6 +3,7 @@
 // declaring variable var url and assigning variable url to link (= is assignment operator)
 var url = "https://teachablemachine.withgoogle.com/models/nHLwAj9Zo/"
 
+//To help manipulate the image and the file upload, save those two DOM elements into some variables.
 // make a variable "input" that retrieves id image-selector
 var inp = document.getElementById("image-selector");
 
@@ -14,7 +15,6 @@ upl.addEventListener("dragover", function(event) {
     event.preventDefault();
 })
 
-
 upl.addEventListener("drop", function(event) {
     //By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element.
     event.preventDefault();
@@ -24,6 +24,7 @@ upl.addEventListener("drop", function(event) {
     let reader = new FileReader();
     //when loads
     reader.onload = function() {
+        // A Data URL is a URI scheme that provides a way to inline data in an HTML document.
         //returns file on screen
         let dataURL = reader.result;
         //what to show when file is uploaded (button and image w/ container)
@@ -38,6 +39,8 @@ upl.addEventListener("drop", function(event) {
         $(".predict").hide();
     }
     // let can only be used within the scope of where you declare this
+    //The FileReader is asynchronous. We have to wait for the result with onload before we can display the image
+    //we get the selected file from the image-selector, and load the image by calling readAsDataURL on reader and passing in the selected image file.
     let file = $("#image-selector").prop('files')[0];
     reader.readAsDataURL(file);
     $(".predict-btn-wrapper").show()
@@ -53,6 +56,7 @@ $(async function() {
         reader.onload = function() {
             let dataURL = reader.result;
             $("#selected-image").attr("src", dataURL);
+            //get rid of any previous predictions that were being displayed for previous images. 
             $("#prediction-list").empty();
             $("#explanation-list").empty();
             $(".confirmation-text").hide();
@@ -61,12 +65,17 @@ $(async function() {
             $(".predict").hide();
         }
         //Let selector image-selector return property "files"
+        // The FileReader is asynchronous. We have to wait for the result with onload before we can display the image.
         let file = $("#image-selector").prop('files')[0];
         reader.readAsDataURL(file);
         $(".predict-btn-wrapper").show();
     });
 
-//retrieves model data
+    // load the model and metadata from Teachable Machine
+    // tf.loadLayersModel() returns a Promise. Meaning that this function promises to return the model at some point in the future.
+
+
+    //This await key word pauses the execution of this wrapping function until the promise is resolved and the model is loaded. This is why we use the async keyword when defining this function... Because if we want to use the await keyword, then it has to be contained within an async function.
     model = await tmImage.load(url + "model.json", url + "metadata.json")
     $(".progress").hide();
     maxPredictions = model.getTotalClasses();
@@ -101,7 +110,7 @@ $(async function() {
         //Runtime error handling
         console.log(fails)
         if (fails == 4) {
-            setP("Unable to identify. Please try again with another photo.", 3, "index.html", "index.html", "aaaaa");
+            setP("Unable to identify. Please try again with another photo.");
         }
         window.scrollTo(0, document.body.scrollHeight);
     })
