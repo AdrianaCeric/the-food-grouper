@@ -1,13 +1,14 @@
 # The Food Grouper 🥘
-This single paged website was a submission to the technical portion of an RBC job Interview for the Role: Innovation Developer in 2021.
+This single paged website to classify pictures of food into "Main Course", "Dessert", or "Appetizer"
 
 ### How it works:
-User uploads images of various foods and the application returns the category of food it belongs too.
+The user uploads images of various foods and the application returns the category of food it belongs too!
 
 ### Made using:
 - HTML/CSS
 - Javascript/JQuery
 - Teachable Machine/Tensorflow.js
+- Figma for UI/UX
 
 ### Future considerations:
 - A table which organizes all of the user findings in categories
