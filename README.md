@@ -1,5 +1,5 @@
 # The Food Grouper 🥘
-A web app to classify pictures of food into "Main Course", "Dessert", or "Appetizer". View the app [here](https://adrianaceric.github.io/the-food-grouper/the-food-grouper)!
+A web app to classify pictures of food into "Main Course", "Dessert", or "Appetizer". View the app [here](https://the-food-grouper.vercel.app/)!
 
 ### How it works:
 The user uploads images of various foods and the application returns the category of food it belongs too!
