@@ -5,7 +5,7 @@ A web app to classify pictures of food into "Main Course", "Dessert", or "Appeti
 The user uploads images of various foods and the application returns the category of food it belongs too!
 
 ### Made using:
-- HTML/CSS
+- HTML/CSS (Bootstrap)
 - Javascript/JQuery
 - Teachable Machine/Tensorflow.js
 - Figma for UI/UX
